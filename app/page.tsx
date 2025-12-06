@@ -40,10 +40,10 @@ function HeroText() {
 const projects = [
   {
     title: "GKPI Sidikalang City Church – Website Design & Development",
-    image: "/Sitoluama.png",
+    image: "/Sitoulama.jpg",
     description:
       "A Laravel-based church website that streamlines administration and provides secure access to worship schedules, bulletins, galleries, financial info, and staff management.",
-    technologies: ["Laravel", "PHP", "JavaScript", "HTML", "CSS"],
+    technologies: ["Laravel", "React", "D3.js", "REST API", "Chart.js"],
     githubLink:
       "https://github.com/windavanecya11/GKPI-Sidikalang-City-Church-Website-Design-and-Development",
   },
@@ -58,10 +58,20 @@ const projects = [
       "https://github.com/windavanecya11/Proyek-Akhir-2-Web-Schedule-and-Task-Management-SMA-Negeri-1-Girsang-Sipangan-Bolon-",
   },
   {
+    title: "DelCheckIn – Digital Attendance",
+    image: "/dell.png",
+    description:
+      "I developed a mobile attendance system for over 500 students and staff, using Firebase Authentication and Firestore for real-time data management. This solution streamlined the attendance process and reduced processing time by 80%.",
+    technologies: ["Flutter", "Dart", "Firebase", "Firestore"],
+    githubLink:
+      "https://github.com/felixnatanaelbutarbutar/FLUTTER-ATTENDANCE-APP-USING-FIREBASE",
+  },
+
+  {
     title: "Smart Parking IoT Application",
     image: "/IoT.png",
     description:
-      "An IoT-based smart parking system built with Python, Laravel, and MySQL to help users identify available parking spots in real time.",
+      "An IoT-based smart parking system using Python, Laravel, and MySQL to identify available parking spots in real time. It includes automated license plate recognition to detect and record vehicles efficiently, improving security and reducing manual supervision.",
     technologies: ["Python", "Laravel 11", "MySQL", "Bootstrap"],
     githubLink:
       "https://github.com/windavanecya11/Smart-Parking-IOT-Aplications",
@@ -70,28 +80,33 @@ const projects = [
     title: "GEMASTIK – SayLocal",
     image: "/gemastik.png",
     description:
-      "A digital platform created for GEMASTIK that empowers local products with marketplace features and interactive learning tools.",
-    technologies: ["React", "TypeScript", "JavaScript", "Tailwind"],
+      "A digital platform built for GEMASTIK that empowers local products through marketplace features and interactive learning tools. The system also provides regional language translation and cultural guidance designed to help tourists engage more intelligently and respectfully with local communities.",
     figma: "https://www.figma.com",
     liveLink:
       "https://drive.google.com/file/d/1my3PDW4LRs-CYXW_qlt7DkipufI30-Wz/view?usp=sharing",
+  },
+  {
+    title: "Web-Based Rumah Kreatif Toba Application",
+    image: "/rumah batak.png",
+    description:
+      "A web-based marketplace platform that elevates Toba’s MSME products through digital storefronts and wider market access. It also promotes local culture by showcasing regional crafts and foods, helping tourists connect meaningfully with the community.",
+    figma: "https://www.figma.com",
+    liveLink:
+      "https://www.figma.com/design/NFihNeT1YhX5ZL181MyI1h/Tampilan-Website-Toko-Online--Community-?node-id=153-6650",
   },
 ];
 
 const Projects = () => {
   return (
     <section id="projects" className="py-16 px-4 md:px-10 w-full max-w-full">
-      <h2 className="text-3xl font-bold mb-10 text-center">
-        Featured Projects
-      </h2>
+      <h2 className="text-3xl font-bold mb-10 text-center">Featured Projects</h2>
 
-      {/* RESPONSIVE GRID: HP=1 | Tablet=2 | Laptop=4 */}
+      {/* Responsive Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 w-full">
         {projects.map((project, index) => (
           <div
             key={index}
-            className="bg-[#ffffff0d] border border-white/10 rounded-xl p-4 shadow-lg backdrop-blur-md
-                       hover:scale-[1.02] transition-all duration-300"
+            className="bg-[#ffffff0d] border border-white/10 rounded-xl p-4 shadow-lg backdrop-blur-md hover:scale-[1.02] transition-all duration-300"
           >
             <img
               src={project.image}
@@ -101,7 +116,10 @@ const Projects = () => {
 
             <h3 className="text-lg font-semibold mb-2">{project.title}</h3>
 
-            <p className="text-sm text-gray-300 mb-3">{project.description}</p>
+            {/* JUSTIFIED DESCRIPTION */}
+            <p className="text-sm text-gray-300 mb-3 text-justify">
+              {project.description}
+            </p>
 
             <div className="flex flex-wrap gap-2 mb-4">
               {project.technologies?.map((tech, i) => (
@@ -158,8 +176,7 @@ const Projects = () => {
 export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-center overflow-hidden">
-
-      {/* Background Effect */}
+      {/* Background */}
       <div className="fixed inset-0 -z-50 h-full w-full">
         <LiquidEther
           colors={["#3b82f6", "#8b5cf6", "#ec4899"]}
@@ -168,12 +185,10 @@ export default function Home() {
         />
       </div>
 
-      {/* Hero Section */}
+      {/* Hero */}
       <section className="relative flex min-h-screen w-full flex-col items-center justify-center px-4 pt-20 text-center md:flex-row md:justify-between md:px-12 md:text-left lg:px-24">
         <div className="flex w-full max-w-7xl flex-col items-center justify-between gap-8 md:flex-row">
-
           <div className="flex max-w-2xl flex-col items-center md:items-start animate-in fade-in slide-in-from-bottom-4 duration-1000">
-
             <h1 className="mb-6 text-5xl font-bold tracking-tight sm:text-7xl md:text-8xl">
               Hi, I'm{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">
@@ -181,7 +196,6 @@ export default function Home() {
               </span>
             </h1>
 
-            {/* ANIMATED TEXT HERE */}
             <p className="mb-8 text-lg text-zinc-600 sm:text-xl">
               I am a <HeroText />
             </p>
@@ -218,7 +232,7 @@ export default function Home() {
       <AboutMe />
       <Experience />
 
-      {/* PROJECTS SECTION */}
+      {/* PROJECTS SECTION (JUSTIFIED DESCRIPTION) */}
       <section id="projects" className="w-full max-w-6xl px-4 py-24">
         <FadeIn direction="up">
           <h2 className="mb-12 text-center text-3xl font-bold tracking-tight sm:text-4xl">
@@ -230,8 +244,6 @@ export default function Home() {
           {projects.map((project, index) => (
             <FadeIn key={index} delay={index * 0.1} direction="up">
               <div className="group relative overflow-hidden rounded-2xl border border-zinc-200 bg-white shadow-sm transition-all hover:border-primary/50 hover:shadow-md">
-
-                {/* IMAGE */}
                 <div className="aspect-video w-full overflow-hidden bg-zinc-100">
                   <img
                     src={project.image}
@@ -240,34 +252,52 @@ export default function Home() {
                   />
                 </div>
 
-                {/* CONTENT */}
                 <div className="p-6">
-                  <h3 className="mb-2 text-xl font-semibold text-zinc-900">{project.title}</h3>
-                  <p className="mb-4 text-sm text-zinc-600">{project.description}</p>
+                  <h3 className="mb-2 text-xl font-semibold text-zinc-900">
+                    {project.title}
+                  </h3>
 
-                  {/* TECHNOLOGIES */}
+                  {/* JUSTIFIED DESCRIPTION */}
+                  <p className="mb-4 text-sm text-zinc-600 text-justify">
+                    {project.description}
+                  </p>
+
                   <div className="mb-4 flex flex-wrap gap-2">
                     {project.technologies?.map((tech, i) => (
-                      <span key={i} className="rounded-md bg-zinc-100 px-2 py-1 text-xs text-zinc-600">
+                      <span
+                        key={i}
+                        className="rounded-md bg-zinc-100 px-2 py-1 text-xs text-zinc-600"
+                      >
                         {tech}
                       </span>
                     ))}
                   </div>
 
-                  {/* LINKS */}
                   <div className="flex items-center gap-4">
                     {project.liveLink && (
-                      <Link href={project.liveLink} target="_blank" className="flex items-center gap-2 text-xs font-medium text-primary hover:underline">
+                      <Link
+                        href={project.liveLink}
+                        target="_blank"
+                        className="flex items-center gap-2 text-xs font-medium text-primary hover:underline"
+                      >
                         Live Demo <ExternalLink className="h-3 w-3" />
                       </Link>
                     )}
                     {project.figma && (
-                      <Link href={project.figma} target="_blank" className="flex items-center gap-2 text-xs font-medium text-pink-600 hover:underline">
+                      <Link
+                        href={project.figma}
+                        target="_blank"
+                        className="flex items-center gap-2 text-xs font-medium text-pink-600 hover:underline"
+                      >
                         Figma <ExternalLink className="h-3 w-3" />
                       </Link>
                     )}
                     {project.githubLink && (
-                      <Link href={project.githubLink} target="_blank" className="flex items-center gap-2 text-xs font-medium text-zinc-500 hover:text-black">
+                      <Link
+                        href={project.githubLink}
+                        target="_blank"
+                        className="flex items-center gap-2 text-xs font-medium text-zinc-500 hover:text-black"
+                      >
                         Source Code <Github className="h-3 w-3" />
                       </Link>
                     )}
@@ -284,22 +314,33 @@ export default function Home() {
       {/* CONTACT */}
       <section id="contact" className="w-full max-w-4xl px-4 py-24 text-center">
         <FadeIn direction="up">
-          <h2 className="mb-6 text-3xl font-bold tracking-tight sm:text-4xl">Let's Work Together</h2>
+          <h2 className="mb-6 text-3xl font-bold tracking-tight sm:text-4xl">
+            Let's Work Together
+          </h2>
 
-         <p className="mb-8 text-lg text-zinc-600">
-  I’m open to collaborations, freelance projects, and new opportunities—especially in Quality Assurance and Front-End Development. 
-  If you’re looking for someone detail-oriented, reliable, and passionate about building user-centered digital experiences, 
-  I’d be happy to work with you.
-</p>
+          <p className="mb-8 text-lg text-zinc-600 text-justify">
+            I’m open to collaborations, freelance projects, and new opportunities—especially in Quality Assurance and Front-End Development. 
+            If you’re looking for someone detail-oriented, reliable, and passionate about building user-centered digital experiences, 
+            I’d be happy to work with you.
+          </p>
 
           <div className="flex justify-center gap-6">
-            <Link href="mailto:hello@example.com" className="group rounded-full bg-zinc-100 p-4 transition-colors hover:bg-primary hover:text-white">
+            <Link
+              href="mailto:hello@example.com"
+              className="group rounded-full bg-zinc-100 p-4 transition-colors hover:bg-primary hover:text-white"
+            >
               <Mail className="h-6 w-6" />
             </Link>
-            <Link href="https://github.com" className="group rounded-full bg-zinc-100 p-4 transition-colors hover:bg-primary hover:text-white">
+            <Link
+              href="https://github.com"
+              className="group rounded-full bg-zinc-100 p-4 transition-colors hover:bg-primary hover:text-white"
+            >
               <Github className="h-6 w-6" />
             </Link>
-            <Link href="https://linkedin.com" className="group rounded-full bg-zinc-100 p-4 transition-colors hover:bg-primary hover:text-white">
+            <Link
+              href="https://linkedin.com"
+              className="group rounded-full bg-zinc-100 p-4 transition-colors hover:bg-primary hover:text-white"
+            >
               <Linkedin className="h-6 w-6" />
             </Link>
           </div>
